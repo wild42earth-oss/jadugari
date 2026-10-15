@@ -139,6 +139,16 @@
       body main.wrap section.newsletter p.newsletter-copy { white-space:normal!important; }
     }
 
+
+    /* Visible checkbox CAPTCHA from the latest Brevo embed */
+    body main.wrap section.newsletter .sib-captcha { display:flex!important; justify-content:center!important; width:100%!important; max-width:360px!important; margin:0 auto 6px!important; padding:0!important; text-align:center!important; background:transparent!important; }
+    body main.wrap section.newsletter .sib-captcha .form__entry,
+    body main.wrap section.newsletter .sib-captcha .form__label-row { width:100%!important; text-align:center!important; }
+    body main.wrap section.newsletter #sib-captcha { display:flex!important; justify-content:center!important; width:100%!important; min-height:78px; margin:0 auto!important; }
+    body main.wrap section.newsletter #sib-captcha > div { margin:0 auto!important; }
+    body main.wrap section.newsletter .sib-captcha .entry__specification { display:block!important; color:#968796!important; font-size:9px!important; text-align:center!important; margin:5px auto 0!important; }
+    body main.wrap section.newsletter .sib-captcha .entry__error { display:block!important; color:#ffb8bd!important; font-size:11px!important; text-align:center!important; margin:4px auto!important; }
+
   </style>
 
 </head>
@@ -217,7 +227,21 @@
                 </div>
               </div>
               <div style="padding:8px 0;">
-                <div class="g-recaptcha-v3" data-sitekey="6LdiJvEtAAAAAChxXwI3CEj3NjULjvDkwknbhELP" style="display:none;"></div>
+                <div class="sib-captcha sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row">
+                      <script>
+                        function handleCaptchaResponse() {
+                          var captchaEvent = new Event('captchaChange');
+                          document.getElementById('sib-captcha').dispatchEvent(captchaEvent);
+                        }
+                      </script>
+                      <div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="6LdiJvEtAAAAAChxXwI3CEj3NjULjvDkwknbhELP" data-callback="handleCaptchaResponse" style="direction:ltr"></div>
+                    </div>
+                    <label class="entry__error entry__error--primary" style="font-family:Helvetica,sans-serif;font-size:12px;text-align:center;color:#ffb8bd;background-color:transparent;border:0;" aria-live="polite"></label>
+                    <label class="entry__specification" style="font-family:Helvetica,sans-serif;font-size:10px;text-align:center;color:#968796;">Form secured by reCAPTCHA</label>
+                  </div>
+                </div>
               </div>
               <div style="padding:8px 0;">
                 <div class="sib-form-block" style="text-align:center;">
@@ -291,7 +315,7 @@
     var AUTOHIDE = Boolean(0);
   </script>
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdiJvEtAAAAAChxXwI3CEj3NjULjvDkwknbhELP&amp;hl=en" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
   <script>
     (function () {
       var success = document.getElementById('success-message');
