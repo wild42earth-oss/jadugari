@@ -83,7 +83,34 @@
     .newsletter #success-message.sib-form-message-panel { background:#17251d!important; color:#dbffe7!important; border:1px solid #426d52!important; }
     .newsletter .sib-form-message-panel__text { display:flex; gap:10px; align-items:flex-start; }
     .newsletter .sib-form-message-panel__inner-text { color:inherit!important; }
-    @media(max-width:360px) { .newsletter { padding:22px 13px 18px; } }
+
+    /* Compact, centred newsletter layout */
+    .newsletter { text-align:center!important; padding:20px 16px 17px!important; margin:24px 0 18px!important; }
+    .newsletter-kicker { text-align:center!important; font-size:9px!important; letter-spacing:.16em!important; margin:0 0 7px!important; }
+    .newsletter-title { text-align:center!important; font-size:clamp(15px,3.5vw,20px)!important; line-height:1.2!important; letter-spacing:.045em!important; white-space:nowrap!important; margin:0 0 7px!important; }
+    .newsletter-copy { text-align:center!important; font-size:10px!important; line-height:1.5!important; max-width:none!important; margin:0 auto 13px!important; white-space:nowrap!important; }
+    .newsletter-legal { text-align:center!important; font-size:9px!important; line-height:1.5!important; margin:9px auto 0!important; max-width:100%!important; }
+    .newsletter #sib-form .sib-input { max-width:360px!important; width:100%!important; margin:0 auto 8px!important; }
+    .newsletter #sib-form .form__entry, .newsletter #sib-form .form__label-row, .newsletter #sib-form .entry__field { text-align:center!important; }
+    .newsletter #sib-form input[name="EMAIL"] { min-height:43px!important; padding:0 12px!important; font-size:12px!important; text-align:center!important; }
+    .newsletter #sib-form input[name="EMAIL"]::placeholder { text-align:center!important; }
+    .newsletter #sib-form .sib-form-block:has(button.sib-form-block__button) { width:100%!important; max-width:360px!important; margin:0 auto!important; }
+    .newsletter #sib-form button.sib-form-block__button { min-height:42px!important; padding:11px 14px!important; font-size:10px!important; letter-spacing:.11em!important; }
+    .newsletter .sib-form-message-panel { text-align:center!important; padding:10px 12px!important; font-size:11px!important; line-height:1.5!important; }
+    .newsletter .sib-form-message-panel__text { justify-content:center!important; align-items:center!important; text-align:center!important; }
+    .newsletter .sib-form-message-panel__inner-text { text-align:center!important; }
+    footer .artist { font-family:"DM Sans",Arial,sans-serif!important; font-size:clamp(8px,2.4vw,11px)!important; letter-spacing:.10em!important; line-height:1.3!important; white-space:nowrap!important; }
+    @media(max-width:390px) {
+      .newsletter { padding:18px 11px 15px!important; }
+      .newsletter-title { font-size:14px!important; letter-spacing:.025em!important; }
+      .newsletter-copy { font-size:9px!important; letter-spacing:0!important; }
+      .newsletter-legal { font-size:8px!important; }
+    }
+    @media(max-width:330px) {
+      .newsletter-title { font-size:12px!important; }
+      .newsletter-copy { white-space:normal!important; }
+      footer .artist { letter-spacing:.04em!important; font-size:8px!important; }
+    }
   </style>
 
 </head>
