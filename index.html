@@ -56,6 +56,36 @@
       fbq('track', 'PageView', { page_path: window.location.pathname });
     }
   </script>
+
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <style>
+    .newsletter { margin:28px 0 20px; padding:25px 18px 22px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(56,35,50,.58),rgba(15,11,16,.78)); }
+    .newsletter-kicker { color:var(--gold); font-size:10px; letter-spacing:.22em; margin:0 0 10px; }
+    .newsletter-title { font-family:"Cormorant Garamond",Georgia,serif; font-size:clamp(29px,7vw,38px); line-height:1.06; font-weight:500; letter-spacing:.02em; color:var(--cream); margin:0 0 10px; }
+    .newsletter-copy { color:#c8b8c4; font-size:12px; line-height:1.7; margin:0 auto 18px; max-width:340px; }
+    .newsletter-legal { color:#968796; font-size:10px; line-height:1.6; margin:12px 4px 0; letter-spacing:0; }
+    .newsletter-sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+    .newsletter .sib-form { background:transparent!important; text-align:center!important; padding:0!important; }
+    .newsletter #sib-form-container { width:100%; max-width:100%!important; margin:0 auto; }
+    .newsletter #sib-container { width:100%; max-width:100%!important; border:0!important; background:transparent!important; border-radius:0!important; padding:0!important; text-align:center!important; color:var(--cream)!important; }
+    .newsletter #sib-form { margin:0!important; }
+    .newsletter #sib-form .sib-form-block { background:transparent!important; padding:0!important; margin:0!important; }
+    .newsletter #sib-form .sib-input { margin:0 0 10px!important; padding:0!important; }
+    .newsletter #sib-form .form__entry, .newsletter #sib-form .form__label-row, .newsletter #sib-form .entry__field { width:100%!important; margin:0!important; padding:0!important; }
+    .newsletter #sib-form input[name="EMAIL"] { display:block!important; width:100%!important; min-height:50px!important; border:1px solid #6b5667!important; border-radius:5px!important; background:#100d12!important; color:var(--cream)!important; padding:0 15px!important; font-family:"DM Sans",Arial,sans-serif!important; font-size:14px!important; text-align:left!important; box-shadow:none!important; }
+    .newsletter #sib-form input[name="EMAIL"]::placeholder { color:#a99ba8!important; opacity:1!important; }
+    .newsletter #sib-form .entry__error { display:block; color:#ffb8bd!important; font-size:12px!important; margin:8px 0 0!important; }
+    .newsletter #sib-form .entry__specification { display:none!important; }
+    .newsletter #sib-form button.sib-form-block__button { display:flex!important; justify-content:center!important; align-items:center!important; width:100%!important; max-width:100%!important; min-height:50px!important; padding:14px 18px!important; border:0!important; border-radius:5px!important; background:var(--gold)!important; color:#171014!important; font-family:"DM Sans",Arial,sans-serif!important; font-size:11px!important; font-weight:700!important; letter-spacing:.15em!important; cursor:pointer!important; }
+    .newsletter #sib-form button.sib-form-block__button:hover { filter:brightness(1.08); }
+    .newsletter .sib-form-message-panel { max-width:100%!important; margin:0 auto 14px!important; padding:13px 14px!important; border-radius:6px!important; font-family:"DM Sans",Arial,sans-serif!important; font-size:12px!important; line-height:1.65!important; text-align:left!important; }
+    .newsletter #error-message.sib-form-message-panel { background:#2a171b!important; color:#ffdce0!important; border:1px solid #77444c!important; }
+    .newsletter #success-message.sib-form-message-panel { background:#17251d!important; color:#dbffe7!important; border:1px solid #426d52!important; }
+    .newsletter .sib-form-message-panel__text { display:flex; gap:10px; align-items:flex-start; }
+    .newsletter .sib-form-message-panel__inner-text { color:inherit!important; }
+    @media(max-width:360px) { .newsletter { padding:22px 13px 18px; } }
+  </style>
+
 </head>
 <body>
   <main class="wrap">
@@ -90,6 +120,55 @@
       <a href="https://www.instagram.com/ishanmahansaria/" target="_blank" rel="noopener noreferrer">@ishanmahansaria ↗</a>
     </section>
 
+
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <p class="newsletter-kicker">STAY IN THE LOOP</p>
+      <h2 class="newsletter-title" id="newsletter-heading">BE FIRST TO HEAR WHAT'S NEXT</h2>
+      <p class="newsletter-copy">New music, exclusive updates, and a little jaadu delivered to your inbox.</p>
+      <div class="sib-form">
+        <div id="sib-form-container" class="sib-form-container">
+          <div id="error-message" class="sib-form-message-panel" role="alert" style="display:none;">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+              <span class="sib-form-message-panel__inner-text">Your signup couldn't be saved just yet. Please try again in a moment.</span>
+            </div>
+          </div>
+          <div id="success-message" class="sib-form-message-panel" role="status" style="display:none;">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+              <span class="sib-form-message-panel__inner-text">You're on the list! The next song will find you first. 🎧</span>
+            </div>
+          </div>
+          <div id="sib-container" class="sib-container--large sib-container--vertical">
+            <form id="sib-form" method="POST" action="https://34bc2f88.sibforms.com/serve/MUIFABRnnQjNuSedCON5TMjq1erXo3qH8s3bEznI2EfRjESgufW-gPwx0qiA8USMffCJ0O1_AD0AH2Wrz0-L3wYd_EOCCD0adRKec341ZtIFYlpTVOMNTcvTcku0aEWNd3womYSTIXzzlTfI7KsW9H2Gn-GPbJ-0t-X2YqSEbMEWY0zoHKUauiAazyKdPMH5yuwTfHKNlD_1ak9Qyg==" data-type="subscription">
+              <div class="sib-input sib-form-block">
+                <div class="form__entry entry_block">
+                  <div class="form__label-row">
+                    <label class="entry__label newsletter-sr-only" for="EMAIL" data-required="*">Email address</label>
+                    <div class="entry__field">
+                      <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="Your email address" data-required="true" required>
+                    </div>
+                  </div>
+                  <label class="entry__error entry__error--primary" aria-live="polite"></label>
+                  <label class="entry__specification">Enter your email address to subscribe.</label>
+                </div>
+              </div>
+              <div class="g-recaptcha-v3" data-sitekey="6LdiJvEtAAAAAChxXwI3CEj3NjULjvDkwknbhELP" style="display:none"></div>
+              <div class="sib-form-block">
+                <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                  <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true">
+                    <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-44.079-162.316 6.031-236.832z"/>
+                  </svg>
+                  SIGN ME UP
+                </button>
+              </div>
+              <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="locale" value="en">
+            </form>
+          </div>
+        </div>
+      </div>
+      <p class="newsletter-legal">By signing up, you agree to receive occasional music news and release updates from Ishan. Unsubscribe anytime.</p>
+    </section>
+
     <footer>
       <div class="artist" style="margin:0 0 10px; color:var(--cream);">STOP SCROLLING · START STREAMING</div>
       <a class="privacy" href="privacy.html">Privacy & tracking information</a>
@@ -122,6 +201,38 @@
       });
     });
   </script>
+
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Please enter a valid email address.";
+    window.REQUIRED_ERROR_MESSAGE = "Please enter your email address.";
+    window.GENERIC_INVALID_MESSAGE = "Please check the information and try again.";
+    window.INVALID_NUMBER = "Please enter a valid number.";
+    window.INVALID_DATE = "Please enter a valid date.";
+    window.REQUIRED_MULTISELECT_MESSAGE = "Please select at least one option.";
+    window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected', selectedOption: '{quantity} selected', selectedOptions: '{quantity} selected' } };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdiJvEtAAAAAChxXwI3CEj3NjULjvDkwknbhELP&amp;hl=en" async defer></script>
+  <script>
+    (function () {
+      var success = document.getElementById('success-message');
+      if (!success || typeof MutationObserver === 'undefined') return;
+      var leadSent = false;
+      var observer = new MutationObserver(function () {
+        if (leadSent || window.getComputedStyle(success).display === 'none') return;
+        leadSent = true;
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', { content_name: 'Music newsletter signup', page_path: window.location.pathname });
+        }
+        observer.disconnect();
+      });
+      observer.observe(success, { attributes: true, attributeFilter: ['style', 'class'] });
+    })();
+  </script>
+
 </body>
 </html>
 <!-- Retry GitHub Pages deployment - 2026-10-15 -->
