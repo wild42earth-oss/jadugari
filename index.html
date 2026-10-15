@@ -52,7 +52,7 @@
       t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
       (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', window.META_PIXEL_ID);
-      fbq('track', 'PageView');
+      fbq('track', 'PageView', { page_path: window.location.pathname });
     }
   </script>
 </head>
@@ -102,7 +102,7 @@
       link.addEventListener('click', function() {
         var platform = link.getAttribute('data-platform');
         if (typeof window.fbq === 'function') {
-          window.fbq('trackCustom', 'StreamingPlatformClick', { platform: platform });
+          window.fbq('trackCustom', 'StreamingPlatformClick', { platform: platform, page_path: window.location.pathname });
         }
         // Campaign tags are visible in the landing-page URL (e.g. ?utm_source=instagram&utm_campaign=jadugari).
         // They help you label traffic; they do not identify a person.
@@ -115,7 +115,7 @@
           };
           if (typeof window.fbq === 'function') {
             window.fbq('trackCustom', 'StreamingCampaignClick', {
-              platform: platform, source: campaign.source, medium: campaign.medium, campaign: campaign.name
+              platform: platform, source: campaign.source, medium: campaign.medium, campaign: campaign.name, page_path: window.location.pathname
             });
           }
         } catch (e) {}
