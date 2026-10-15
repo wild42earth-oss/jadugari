@@ -260,6 +260,41 @@
     })();
   </script>
 
+
+  <style id="newsletter-final-layout-fix">
+    /* Final override: deliberately placed last so Brevo's stylesheet cannot undo the compact layout. */
+    body main.wrap section.newsletter,
+    body main.wrap section.newsletter * { box-sizing:border-box!important; }
+    body main.wrap section.newsletter { text-align:center!important; padding:18px 14px 15px!important; }
+    body main.wrap section.newsletter p.newsletter-kicker { text-align:center!important; font-size:9px!important; line-height:1.3!important; margin:0 0 7px!important; letter-spacing:.14em!important; }
+    body main.wrap section.newsletter h2#newsletter-heading.newsletter-title { display:block!important; width:100%!important; max-width:100%!important; text-align:center!important; font-family:"Cormorant Garamond",Georgia,serif!important; font-size:18px!important; line-height:1.2!important; font-weight:500!important; letter-spacing:.025em!important; white-space:nowrap!important; margin:0 auto 8px!important; padding:0!important; }
+    body main.wrap section.newsletter p.newsletter-copy { display:block!important; width:100%!important; max-width:100%!important; text-align:center!important; font-size:10px!important; line-height:1.45!important; white-space:nowrap!important; margin:0 auto 13px!important; padding:0!important; }
+    body main.wrap section.newsletter p.newsletter-legal { display:block!important; width:100%!important; max-width:100%!important; text-align:center!important; font-size:9px!important; line-height:1.45!important; margin:9px auto 0!important; padding:0!important; letter-spacing:0!important; }
+    body main.wrap section.newsletter #sib-form-message-panel,
+    body main.wrap section.newsletter .sib-form-message-panel { text-align:center!important; }
+    body main.wrap section.newsletter .sib-form-message-panel__text { display:flex!important; justify-content:center!important; align-items:center!important; text-align:center!important; }
+    body main.wrap section.newsletter .sib-form-message-panel__inner-text { text-align:center!important; }
+    body main.wrap section.newsletter #sib-form .form__entry,
+    body main.wrap section.newsletter #sib-form .form__label-row,
+    body main.wrap section.newsletter #sib-form .entry__field { width:100%!important; text-align:center!important; }
+    body main.wrap section.newsletter #sib-form input#EMAIL { display:block!important; width:100%!important; max-width:360px!important; min-height:42px!important; margin:0 auto!important; padding:0 12px!important; font-family:"DM Sans",Arial,sans-serif!important; font-size:12px!important; text-align:center!important; }
+    body main.wrap section.newsletter #sib-form input#EMAIL::placeholder { text-align:center!important; }
+    body main.wrap section.newsletter #sib-form .sib-input { width:100%!important; max-width:360px!important; margin:0 auto 8px!important; padding:0!important; }
+    body main.wrap section.newsletter #sib-form button.sib-form-block__button { display:flex!important; width:100%!important; max-width:360px!important; min-height:40px!important; justify-content:center!important; align-items:center!important; margin:0 auto!important; padding:10px 12px!important; text-align:center!important; font-size:10px!important; letter-spacing:.10em!important; }
+    body main.wrap footer .artist { font-family:"DM Sans",Arial,sans-serif!important; font-size:clamp(8px,2.5vw,11px)!important; line-height:1.3!important; letter-spacing:.06em!important; white-space:nowrap!important; text-align:center!important; }
+    @media(max-width:390px) {
+      body main.wrap section.newsletter { padding:17px 10px 14px!important; }
+      body main.wrap section.newsletter h2#newsletter-heading.newsletter-title { font-size:14px!important; letter-spacing:.01em!important; }
+      body main.wrap section.newsletter p.newsletter-copy { font-size:9px!important; }
+      body main.wrap section.newsletter p.newsletter-legal { font-size:8px!important; }
+      body main.wrap footer .artist { font-size:8px!important; letter-spacing:.035em!important; }
+    }
+    @media(max-width:310px) {
+      body main.wrap section.newsletter h2#newsletter-heading.newsletter-title { font-size:12px!important; }
+      body main.wrap section.newsletter p.newsletter-copy { white-space:normal!important; }
+    }
+  </style>
+
 </body>
 </html>
 <!-- Retry GitHub Pages deployment - 2026-10-15 -->
