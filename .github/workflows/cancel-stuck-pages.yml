@@ -1,0 +1,41 @@
+name: Clear stuck GitHub Pages deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/cancel-stuck-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  cancel-stale-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel the stale Pages deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const staleSha = "1cfe4647d0e11c6f1ab60402209d6749bea59021";
+            try {
+              await github.request(
+                "POST /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel",
+                {
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pages_deployment_id: staleSha,
+                  headers: { "X-GitHub-Api-Version": "2026-03-10" }
+                }
+              );
+              core.info("Cancellation request sent for stale Pages deployment " + staleSha);
+            } catch (error) {
+              if (error.status === 404) {
+                core.info("GitHub reports no cancellable Pages deployment for " + staleSha + ".");
+                return;
+              }
+              throw error;
+            }
