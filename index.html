@@ -151,6 +151,25 @@
 
   </style>
 
+
+  <!-- Google Analytics 4: replace G-XXXXXXXXXX with your GA4 Measurement ID from Admin > Data streams. -->
+  <script>
+    window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+    if (window.GA_MEASUREMENT_ID &&
+        window.GA_MEASUREMENT_ID !== "G-XXXXXXXXXX" &&
+        /^G-[A-Z0-9]+$/.test(window.GA_MEASUREMENT_ID)) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', window.GA_MEASUREMENT_ID);
+      var gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' +
+        encodeURIComponent(window.GA_MEASUREMENT_ID);
+      document.head.appendChild(gaScript);
+    }
+  </script>
+
 </head>
 <body>
   <main class="wrap">
@@ -275,6 +294,18 @@
         var platform = link.getAttribute('data-platform');
         if (typeof window.fbq === 'function') {
           window.fbq('trackCustom', 'StreamingPlatformClick', { platform: platform, page_path: window.location.pathname });
+        }
+        // GA4: records a streaming-platform button click, not a confirmed song play/stream.
+        if (typeof window.gtag === 'function') {
+          var gaParams = new URLSearchParams(window.location.search);
+          window.gtag('event', 'streaming_platform_click', {
+            streaming_platform: platform,
+            link_url: link.href,
+            page_path: window.location.pathname,
+            campaign_source: gaParams.get('utm_source') || 'direct',
+            campaign_medium: gaParams.get('utm_medium') || '',
+            campaign_name: gaParams.get('utm_campaign') || ''
+          });
         }
         // Campaign tags are visible in the landing-page URL (e.g. ?utm_source=instagram&utm_campaign=jadugari).
         // They help you label traffic; they do not identify a person.
